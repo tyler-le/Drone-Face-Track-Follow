@@ -1,4 +1,4 @@
-from djitellopy import tello
+from djitellopy import Tello
 import time
 import pygame
 
@@ -6,15 +6,13 @@ import pygame
 pygame.init()
 window = pygame.display.set_mode((400, 400))
 
-tello = tello.Tello()
+tello = Tello()
 tello.connect()
 
 
 def process_key(events):
-
     for event in events:
         if event.type == pygame.KEYDOWN:
-
             if event.key == pygame.K_t:
                 tello.takeoff()
             if event.key == pygame.K_l or event.key == pygame.K_q or event.key == pygame.K_ESCAPE:
@@ -46,4 +44,3 @@ while True:
     events = pygame.event.get()
     process_key(events)
     time.sleep(0.05)
-
